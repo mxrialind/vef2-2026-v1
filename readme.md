@@ -151,7 +151,9 @@ Skil skulu innihalda:
 
 - Slóð á verkefni keyrandi á Netlify.
 - Slóð á GitHub repo fyrir verkefni. Dæmatímakennurum skal hafa verið boðið í repo. Notendanöfn þeirra eru:
-  - Koma seinna
+  - `KristinFrida`
+  - `MarzukIngi`
+  - `osk`
 
 ## Aðstoð
 
