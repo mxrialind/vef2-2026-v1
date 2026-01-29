@@ -1,51 +1,9 @@
 import fs from "node:fs/promises";
 import { parse } from "node:path";
+import { parseLine } from "./lib/parse.js";
 
 const MAX_QUESIONS_PER_CATEGORY = 100;
 
-/**
- * 
- * @param {string} line 
- * @returns 
- */
-function parseLine(line) {
-  const split = line.split(",");
-  /*
-  1   Almenn kunnátta
-  2   Náttúra og vísindi
-  3   Bókmenntir og listir
-  4   Saga
-  5   Landafræði
-  6   Skemmtun og afþreying
-  7   Íþróttir og tómstundir
-  */
-
-  /*
-  1   Nei   Flokkanúmer
-  2   Já    Undirflokkur ef til staðar
-  3   Nei   Erfiðleikastig: 1: Létt, 2: Meðal, 3: Erfið
-  4   Já    Gæðastig: 1: Slöpp, 2: Góð, 3: Ágæt
-  5   Nei   Spurningin
-  6   Nei   Svarið
-  */
-
-  const categoryNumber = split[0];
-  const subCategory = split[1];
-  const difficulty = split[2];
-  const quality = split[3];
-  const question = split[4];
-  const answer = split[0];
-
-  const q = {
-    categoryNumber,
-    subCategory,
-    difficulty,
-    quality,
-    question,
-    answer,
-  };
-  return q;
-}
 
 function generateQuestionHtml(q) {
   const html = `
@@ -70,7 +28,7 @@ async function main() {
   const questions = lines.map(parseLine);
 
   const qualityHistoryQuestions = questions
-    .filter((q) => q.categoryNumber === "4" && q.quality === "3")
+    .filter((q) => q && q.categoryNumber === "4" && q.quality === "3")
     .slice(0, MAX_QUESIONS_PER_CATEGORY);
 
   

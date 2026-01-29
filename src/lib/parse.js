@@ -2,13 +2,6 @@ export function parseQuestions() {
   return 'test';
 }
 
-/**
- * 
- * @param {string} line 
- * @returns 
- */
- export function parseLine(line) {
-  const split = line.split(",");
   /*
   1   Almenn kunnátta
   2   Náttúra og vísindi
@@ -28,12 +21,25 @@ export function parseQuestions() {
   6   Nei   Svarið
   */
 
+/**
+ * 
+ * @param {string} line 
+ * @returns 
+ */
+ export function parseLine(line) {
+  const split = line.split(",");
+
+  if (split.length !== 6) {
+    return null
+  }
+
   const categoryNumber = split[0];
   const subCategory = split[1];
   const difficulty = split[2];
   const quality = split[3];
   const question = split[4];
-  const answer = split[6];
+  const answer = split[5];
+
 
   const q = {
     categoryNumber,
