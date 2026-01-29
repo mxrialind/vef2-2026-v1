@@ -12,13 +12,11 @@ export function parseQuestions() {
   7   Íþróttir og tómstundir
   */
 
-  //..
 
   /*
   1   Nei   Flokkanúmer
   2   Já    Undirflokkur ef til staðar
   3   Nei   Erfiðleikastig: 1: Létt, 2: Meðal, 3: Erfið
-  4   Já    Gæðastig: 1: Slöpp, 2: Góð, 3: Ágæt
   5   Nei   Spurningin
   6   Nei   Svarið
   */
