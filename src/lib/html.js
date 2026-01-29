@@ -3,13 +3,22 @@ export function generateIndexHtml() {
   const html = /* HTML */ `
     <html>
       <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
         <script src="scripts.js" type="module"></script>
       </head>
       <body>
         <h1>Spurningaleikur!</h1>
-        <p>Velkomin velkomin! Veldu flokk til að svara spurningum í:</p>
+        <p>Velkomin velkomin! Aðeins gæðaspurningar hér!</p>
+        <p>Veldu flokk til að svara spurningum í:</p>
         <ul>
+          <li><a href="almenn.html">Almenn kunnátta</a></li>
+          <li><a href="nattura.html">Náttúra og vísindi</a></li>
+          <li><a href="bokmenntir.html">Bókmenntir og listir</a></li>
           <li><a href="saga.html">Saga</a></li>
+          <li><a href="landafraedi.html">Landafræði</a></li>
+          <li><a href="skemmtun.html">Skemmtun og afþreying</a></li>
+          <li><a href="ithrottir.html">Íþróttir</a></li>
         </ul>
       </body>
     </html>`;
@@ -33,6 +42,8 @@ export function generateQuestionCategoryHtml(title, questionsHtml) {
   const html = /*HTML*/ `
     <html>
       <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
         <script src="scripts.js" type="module"></script>
       </head>
       <body>

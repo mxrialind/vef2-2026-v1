@@ -1,1 +1,77 @@
-/* útfæra */
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    background-color: #aec3b0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+ul li a {
+    display: block;
+    padding: 1rem;
+    background: #eee;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.question {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.question h3 {
+    margin-top: 0;
+}
+
+.question button {
+    padding: 0.6rem 1rem;
+    margin-top:0.5rem;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .question button {
+        width: auto;
+        margin-right: 0.5rem;
+    }
+}
+
+.counter {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.counter div {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem;
+    background: #eee;
+    border-radius: 6px;
+}

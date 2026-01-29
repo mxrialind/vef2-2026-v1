@@ -12,7 +12,6 @@ export function parseQuestions() {
   7   Íþróttir og tómstundir
   */
 
-
   /*
   1   Nei   Flokkanúmer
   2   Já    Undirflokkur ef til staðar
