@@ -14,11 +14,17 @@ function questionAnswerHandler(e) {
   const parentQuestion = button.closest('.question')
 
   console.log(parentQuestion)
-  //TODO? disable a takka ekki hægt að yta tvisvar
 
-  if (!correctElement) {
-    throw new Error("missing correct element");
+  if (!correctElement || !incorrectElement) {
+    throw new Error("missing counter elements");
   }
+
+  // smá hjálp frá chatgpt
+  const questionButtons = parentQuestion.querySelectorAll("button");
+  for (const btn of questionButtons) {
+    btn.disabled = true;
+  }
+
 
   if (isCorrect) {
     const currentCorrectText = correctElement.textContent;
@@ -27,6 +33,14 @@ function questionAnswerHandler(e) {
     const updatedCorrect = currentCorrect + 1;
 
     correctElement.textContent = updatedCorrect.toString();
+
+  } else {
+    const currentIncorrectText = incorrectElement.textContent;
+    const currentIncorrect = Number.parseInt(currentIncorrectText ?? '0');
+
+    const updatedIncorrect = currentIncorrect + 1;
+
+    incorrectElement.textContent = updatedIncorrect.toString();
   }
 }
 
