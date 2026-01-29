@@ -1,5 +1,4 @@
 import fs from "node:fs/promises";
-import { parse } from "node:path";
 import { parseLine } from "./lib/parse.js";
 
 const MAX_QUESIONS_PER_CATEGORY = 100;

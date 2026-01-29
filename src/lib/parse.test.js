@@ -1,4 +1,4 @@
-import assert, { Assert } from 'node:assert';
+import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import { parseLine, parseQuestions } from './parse.js';
 
