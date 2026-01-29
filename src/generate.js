@@ -1,18 +1,9 @@
 import fs from "node:fs/promises";
 import { parseLine } from "./lib/parse.js";
+import { generateQuestionCategoryHtml, generateQuestionHtml } from "./lib/html.js";
 
 const MAX_QUESIONS_PER_CATEGORY = 100;
 
-
-function generateQuestionHtml(q) {
-  const html = `
-    <section>
-      <h3>${q.question}</h3>
-      <p>${q.answer}</p>
-    </section>`;
-    
-  return html
-}
 
 async function main() {
 
@@ -30,9 +21,10 @@ async function main() {
     .filter((q) => q && q.categoryNumber === "4" && q.quality === "3")
     .slice(0, MAX_QUESIONS_PER_CATEGORY);
 
+  const questionsHtml = qualityHistoryQuestions.map(generateQuestionHtml).join('\n')
   
-  const output = qualityHistoryQuestions.map(generateQuestionHtml).join('\n')
-  const path ='./dist/saga.html'
+  const output = generateQuestionCategoryHtml('Saga', questionsHtml);
+    const path ='./dist/saga.html'
 
   fs.writeFile(path, output, 'utf-8')
 }
