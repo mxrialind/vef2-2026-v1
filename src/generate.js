@@ -1,15 +1,17 @@
 import fs from "node:fs/promises";
 import { parseLine } from "./lib/parse.js";
-import { generateQuestionCategoryHtml, generateQuestionHtml } from "./lib/html.js";
+import {
+  generateIndexHtml,
+  generateQuestionCategoryHtml,
+  generateQuestionHtml,
+} from "./lib/html.js";
 
 const MAX_QUESIONS_PER_CATEGORY = 100;
 
-
 async function main() {
-
   //Búa til dist möppu ef ekki til
-  const distPath = './dist';
-  await fs.mkdir(distPath)
+  const distPath = "./dist";
+  await fs.mkdir(distPath);
 
   const content = await fs.readFile("./questions.csv", "utf-8");
 
@@ -21,12 +23,25 @@ async function main() {
     .filter((q) => q && q.categoryNumber === "4" && q.quality === "3")
     .slice(0, MAX_QUESIONS_PER_CATEGORY);
 
-  const questionsHtml = qualityHistoryQuestions.map(generateQuestionHtml).join('\n')
-  
-  const output = generateQuestionCategoryHtml('Saga', questionsHtml);
-    const path ='./dist/saga.html'
+    //TODO ítra gegnum alla flokka og bua til
+  const questionsHtml = qualityHistoryQuestions
+    .map(generateQuestionHtml)
+    .join("\n");
 
-  fs.writeFile(path, output, 'utf-8')
+  const output = generateQuestionCategoryHtml("Saga", questionsHtml);
+
+  const path = "./dist/saga.html";
+
+  await fs.writeFile(path, output, "utf-8");
+
+  //TODO bua til alla hina flokkana
+
+  //TODO bua til index
+  const indexHtml = generateIndexHtml();
+
+  await fs.writeFile('./dist/index.html', indexHtml, "utf-8");
+
+
 }
 
 main().catch((error) => {
